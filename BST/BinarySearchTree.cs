@@ -37,5 +37,15 @@ namespace BST
             ? SearchRecursive(currentNode.Left, value)
             : SearchRecursive(currentNode.Right, value);
         }
+        public int SearchMin()
+        {
+            while(Root.Left != null)
+            {
+                Root = Root.Left;
+            }
+            return Root.Value;
+        }
+        
+        
     }
 }
