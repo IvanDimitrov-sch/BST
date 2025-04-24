@@ -39,13 +39,40 @@ namespace BST
         }
         public int SearchMin()
         {
-            while(Root.Left != null)
+            TreeNode current = Root;
+            while (current.Left != null)
             {
-                Root = Root.Left;
+                current = current.Left;
             }
             return Root.Value;
         }
-        
-        
+        public int SearchFloor(int x)
+        {
+            int floor = -1;  
+            TreeNode current = Root;  
+
+            while (current != null)
+            {
+                if (current.Value == x)
+                {
+                    return current.Value; 
+                }
+                else if (current.Value > x)
+                {
+                   
+                    current = current.Left;
+                }
+                else
+                {
+                    
+                    floor = current.Value;
+                    current = current.Right;  
+                }
+            }
+            return floor;  
+        }
+
+
+
     }
 }
